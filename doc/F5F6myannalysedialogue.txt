@@ -1,0 +1,21 @@
+ def getFirstMotCle(l: List[String]): String = {
+    for (el <- l) {
+      if (MyAnalyseMessage.extraireMotCle(el) != None) {
+         if(MyAnalyseMessage.compteMot(motcle)==1){
+                return opToString(MyAnalyseMessage.extraireMotCle(el))
+           
+          }else if(MyAnalyseMessage.compteMot(motcle)>1 && l(l.length-1)=="motcle"){
+               var list=MyAnalyseMessage.extraireMotCle2(el)
+          for(e<-list)  cpt+e._1+":"+e._2
+           cpt+=1
+           var a=scala.io.StdIn.readInt()
+         // on affiche le choix
+              return list(a)._1        
+                   
+          
+              
+}
+    }
+    ""
+  }
+// éliminer tous les articles définis et indéfinis

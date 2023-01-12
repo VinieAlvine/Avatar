@@ -1,0 +1,53 @@
+@startuml
+
+entity App {
+    top()
+}
+
+entity UI {}
+
+interface MachineDialogue {
+    Unit reinit
+    ask(s: String): List[String]
+    test(l: List[String]): List[String]
+}
+
+interface AnalyseMessage {
+    extraireMotCle(m: String): Option[String]
+}
+
+interface BDD {
+    obtenirEndroits(): List[List[String]]
+    obtenirAdresse(endroit: String): Option[String]
+}
+
+interface Hamming {
+    distance(motCle: String, motMess: String): Int
+}
+
+interface Language {
+    getName(): String 
+	getHello(): String 
+    getGoodLanguage(): String
+    getQuestion(): String 
+    getGoodAnswer(endroit: String, adresse: String): String
+    getIDK(): String
+    getListPolite(): List[String] 
+    estFormulePolitesse(message: String): Boolean
+	getListSearch(): List[String]
+    getListExpression(): List[String] 
+	getPropositionMessage(nbr: Int): String
+	getPropositionQuestion(): String
+}
+
+UI <-- App
+MachineDialogue <-- UI
+Language <-- MachineDialogue
+AnalyseMessage <-- MachineDialogue
+BDD <-- MachineDialogue
+Hamming <-- Language
+Hamming <-- AnalyseMessage
+BDD <-- AnalyseMessage
+
+
+@enduml

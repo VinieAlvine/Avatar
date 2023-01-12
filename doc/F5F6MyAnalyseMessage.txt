@@ -1,0 +1,113 @@
+package implementations
+
+import library._
+
+object MyAnalyseMessage extends AnalyseMessage {
+
+ /* def testmotMessage(mot: String): String = {
+    var motcle: String =""
+    var listmotcleB = MyBDDXml.getMyMap().keys
+    for (listmot <- listmotcleB) {
+      for(lieu<-listmot){
+        var endroit=lieu.split(" ") 
+        for(m<-endroit){
+           if (MyHamming.distance(ingoreAccent(mot).toUpperCase(), ingoreAccent(m).toUpperCase()) == 0 || MyHamming.distance(ingoreAccent(mot).toUpperCase(), ingoreAccent(m).toUpperCase()) == 1)m
+           
+        }
+      }
+     
+    }
+    motcle
+    
+    //Ajouter test propositions
+  }
+ def compteMot(mot: String): Int ={
+      var motcle=testmotMessage(mot)
+      
+      var endroit: String =""
+      var cpt:Int=0
+      var listmotcleB = MyBDDXml.getMyMap().keys
+    if(motcle!=""){
+     for (listmot <- listmotcleB) {
+      for(lieu<-listmot){
+         while(lieu.contains(motcle)){
+              cpt+=1
+         }
+        
+      }}
+    }
+    cpt
+    
+ }
+ def extEndroit1(mot: String): String = {
+   var motcle=testmotMessage(mot)
+   var listmotcleB = MyBDDXml.getMyMap().keys
+   var endroit: String = ""
+   var litEndroitAd:Map[String, String] = Map()
+    var cpt:Int=0
+    for (listmot <- listmotcleB) {
+      for(lieu<-listmot){
+        if(lieu.contains(motcle)) endroit=endroit+lieu
+      }}
+   
+  endroit
+ }
+ 
+ def extEndroit2(mot: String): List[(String,String)] = {
+   var motcle=testmotMessage(mot)
+   var listmotcleB = MyBDDXml.getMyMap().keys
+   var map =MyBDDXml.getMyMap()
+   var endroit: String = ""
+   var litEndroitAd:List[(String,String)]= List()
+    var cpt:Int=0
+    for (listmot <- listmotcleB) {
+      for(lieu<-listmot){
+        while(lieu.contains(motcle))
+        
+          litEndroitAd=litEndroitAd :+ (lieu,lieu)
+      }}
+   
+  litEndroitAd
+ }
+  /**
+   * remplace la chaîne de charactère par la même avec les accents enlevés
+   * @param mot la chaîne de caractère saisie (ou mot clé saisi)
+   * @result le string correspondant à mot en enlevant les accents des lettres
+   */
+
+  def ingoreAccent(mot: String): String = {
+    var mot2 = mot
+    var mot1: String = ""
+    var exp = Map("à" -> "a", "â" -> "a", "ä" -> "a", "é" -> "e", "è" -> "e", "ê" -> "e", "ë" -> "e", "ï" -> "i", "î" -> "i", "ô" -> "o", "ö" -> "o", "ù" -> "u", "û" -> "u", "ü" -> "u", "ÿ" -> "y", "ç" -> "c")
+    var listmotaccent = exp.keys
+    var listmot = mot.split("").toList
+    for (e <- listmot) {
+      for (u <- listmotaccent)
+        if (e == u) mot2 = mot2.replace(e, exp(u))
+    }
+    mot2
+  }
+
+  /**
+   * récupère le string si existant associé au mot clé saisi
+   * @param m la chaîne de caractère saisie (ou mot clé saisi)
+   * @result le string correspondant à m ou si rien ne correspond, ne renvoie rien
+   */
+*/
+  def extraireMotCle(mot: String): Option[String] = {???
+    /*var motcle = testmotMessage(mot)
+    if (motcle != "") Some(motcle)
+    else None*/
+
+  }
+
+  /**
+   * vérification afin de savoir si la chaîne de caractère est une formule de politesse
+   * @param m la chaîne de caractère saisie
+   * @result un booléen : vrai si m est une formule de politesse, sinon faux
+   */
+
+  def getPropositions(mot: String): Map[String, String] = {
+    Map()
+  }
+}
